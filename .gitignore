@@ -1,3 +1,25 @@
+syntax: glob
+
+.hg/*
+
+target/*
+
+*.orig
+
+*.classpath
+
+*.project
+
+*.log
+
+**/.settings/*
+
+build/*
+
+bin/*
+
+.gradle/*
+
 .gradle
 /build/
 !gradle/wrapper/gradle-wrapper.jar
@@ -23,3 +45,4 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+/bin/
