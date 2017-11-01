@@ -2,6 +2,6 @@ package com.example.testtool.domain;
 
 public interface HttpEndpoint {
 
-	void put(String url);
+	void put(String url) throws Exception;
 
 }
