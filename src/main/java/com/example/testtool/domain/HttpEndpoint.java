@@ -1,11 +1,7 @@
 package com.example.testtool.domain;
 
-public class HttpEndpoint {
+public interface HttpEndpoint {
 
-	
-	
-	void put(String url) {
-		
-	}
-	
+	void put(String url);
+
 }

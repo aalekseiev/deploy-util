@@ -1,4 +1,4 @@
-package com.example.testtool.domain;
+package com.example.testtool.domain.configuration;
 
 public final class FileConfiguration implements Configuration {
 

@@ -1,6 +1,6 @@
-package com.example.testtool.domain;
+package com.example.testtool.domain.deployable;
 
-public final class WarFileArtifact implements Artifact {
+public final class WarFileArtifact implements DeployableArtifact {
 
 	private final String filename;
 

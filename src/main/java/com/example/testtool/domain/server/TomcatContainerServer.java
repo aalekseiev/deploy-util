@@ -1,4 +1,7 @@
-package com.example.testtool.domain;
+package com.example.testtool.domain.server;
+
+import com.example.testtool.domain.configuration.Configuration;
+import com.example.testtool.domain.deployable.DeployableArtifact;
 
 public final class TomcatContainerServer implements ContainerServer {
 
@@ -13,7 +16,7 @@ public final class TomcatContainerServer implements ContainerServer {
 	}
 
 	@Override
-	public void deploy(Artifact artifact, Configuration configuration) {
+	public void deploy(DeployableArtifact artifact, Configuration configuration) {
 		// httpclient.put(url, artifact)
 	}
 
