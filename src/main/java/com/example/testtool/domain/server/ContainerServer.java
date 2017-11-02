@@ -5,6 +5,6 @@ import com.example.testtool.domain.deployable.DeployableArtifact;
 
 public interface ContainerServer {
 
-	void deploy(DeployableArtifact artifact, Configuration config);
+	void deploy(DeployableArtifact artifact, Configuration config) throws Exception;
 	
 }

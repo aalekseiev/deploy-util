@@ -5,6 +5,7 @@ import static org.hamcrest.Matchers.equalTo;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.auth.AuthenticationException;
@@ -21,7 +22,7 @@ public class DefaultHttpEndpoint implements HttpEndpoint {
 	
 	/* "http://example.com" */
 	@Override
-	public void put(String address, String username, char[] secret) throws IOException, AuthenticationException {
+	public void put(String address, String username, char[] secret, InputStream body) throws IOException, AuthenticationException {
 	    CloseableHttpClient client = HttpClients.createDefault();
 	    HttpPut httpPut = new HttpPut(address);
 	 
@@ -30,7 +31,7 @@ public class DefaultHttpEndpoint implements HttpEndpoint {
 	    httpPut.addHeader(new BasicScheme().authenticate(creds, httpPut, null));
 	    
 	    MultipartEntityBuilder builder = MultipartEntityBuilder.create();
-	    builder.addBinaryBody("file", new File("/home/aalekseyev/workspace_test/sample.war"),
+	    builder.addBinaryBody("file", body,
 	      ContentType.APPLICATION_OCTET_STREAM, "file.ext");
 	 
 	    HttpEntity multipart = builder.build();
