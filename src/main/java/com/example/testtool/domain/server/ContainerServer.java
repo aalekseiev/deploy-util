@@ -8,9 +8,12 @@ public interface ContainerServer {
 
 	void deploy(DeployableArtifact artifact, Configuration config) throws Exception;
 	
+	void undeploy(ArtifactId artifactId) throws Exception;
+	
 	void start(ArtifactId artifactId) throws Exception;
 	
-	void undeploy(ArtifactId artifactId) throws Exception;
+	void stop(ArtifactId artifactId) throws Exception;
 		
 	String status(ArtifactId artifactId) throws Exception;
+	
 }

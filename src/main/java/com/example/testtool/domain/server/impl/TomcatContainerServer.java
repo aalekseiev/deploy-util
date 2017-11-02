@@ -9,6 +9,16 @@ import com.example.testtool.domain.server.ContainerServer;
 
 public final class TomcatContainerServer implements ContainerServer {
 
+	private static final String CONTEXT_DEPLOY = "/manager/text/deploy?path=/sample";
+	
+	private static final String CONTEXT_UNDEPLOY = "/manager/text/undeploy?path=/";
+
+	private static final String CONTEXT_START = "/manager/text/start?path=/";
+	
+	private static final String CONTEXT_STOP = "/manager/text/stop?path=/";
+
+	private static final String CONTEXT_LIST = "/manager/text/list";
+
 	private final String serverUrl;
 	
 	private final String username;
@@ -17,8 +27,6 @@ public final class TomcatContainerServer implements ContainerServer {
 	
 	private final HttpEndpoint httpEndpoint;
 	
-	private static final String CONTEXT_PUT = "/manager/text/deploy?path=/sample"; 
-
 	public TomcatContainerServer(String serverUrl, String username, char[] sercret) {
 		super();
 		this.serverUrl = serverUrl;
@@ -29,24 +37,28 @@ public final class TomcatContainerServer implements ContainerServer {
 
 	@Override
 	public void deploy(DeployableArtifact artifact, Configuration configuration) throws Exception {
-		this.httpEndpoint.put(serverUrl + CONTEXT_PUT, username, s3cret, artifact.stream());
+		this.httpEndpoint.put(serverUrl + CONTEXT_DEPLOY, username, s3cret, artifact.stream());
 	}
 
 	@Override
 	public String status(ArtifactId artifactId) throws Exception {
-		String text = this.httpEndpoint.get(serverUrl + "/manager/text/list", username, s3cret);
+		String text = this.httpEndpoint.get(serverUrl + CONTEXT_LIST, username, s3cret);
 		return new TomcatResponseParser(text).applicationLine(artifactId);
 	}
 
 	@Override
 	public void start(ArtifactId artifactId) throws Exception {
-		String text = this.httpEndpoint.get("/manager/text/start?path=/" + artifactId.wrappedId(), username, s3cret);
-		System.out.println(text);
+		this.httpEndpoint.get(serverUrl + CONTEXT_START + artifactId.wrappedId(), username, s3cret);
+	}
+	
+	@Override
+	public void stop(ArtifactId artifactId) throws Exception {
+		this.httpEndpoint.get(serverUrl + CONTEXT_STOP + artifactId.wrappedId(), username, s3cret);
 	}
 
 	@Override
 	public void undeploy(ArtifactId artifactId) throws Exception {
-		this.httpEndpoint.get(serverUrl + "/manager/text/undeploy?path=/" + artifactId.wrappedId(), username, s3cret);
+		this.httpEndpoint.get(serverUrl + CONTEXT_UNDEPLOY + artifactId.wrappedId(), username, s3cret);
 	}
 
 }

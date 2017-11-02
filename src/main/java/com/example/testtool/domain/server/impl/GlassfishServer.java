@@ -30,4 +30,9 @@ public final class GlassfishServer implements ContainerServer {
 		
 	}
 
+	@Override
+	public void stop(ArtifactId artifactId) throws Exception {
+		
+	}
+
 }
