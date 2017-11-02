@@ -2,6 +2,7 @@ package com.example.testtool.domain.deployable.impl;
 
 import java.io.InputStream;
 
+import com.example.testtool.domain.deployable.ArtifactId;
 import com.example.testtool.domain.deployable.DeployableArtifact;
 
 public final class StreamArtifact implements DeployableArtifact {
@@ -16,6 +17,11 @@ public final class StreamArtifact implements DeployableArtifact {
 	@Override
 	public InputStream stream() throws Exception {
 		return stream;
+	}
+
+	@Override
+	public ArtifactId id() {
+		return new StreamArtifactId(stream.toString());
 	}
 
 }

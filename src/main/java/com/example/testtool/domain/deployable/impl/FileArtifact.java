@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
+import com.example.testtool.domain.deployable.ArtifactId;
 import com.example.testtool.domain.deployable.DeployableArtifact;
 
 public final class FileArtifact implements DeployableArtifact {
@@ -19,6 +20,11 @@ public final class FileArtifact implements DeployableArtifact {
 	@Override
 	public InputStream stream() throws FileNotFoundException {
 		return new FileInputStream(new File(filename));
+	}
+
+	@Override
+	public ArtifactId id() {
+		return new FileArtifactId(new FileName(filename).baseName());
 	}
 	
 }

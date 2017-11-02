@@ -19,5 +19,28 @@ public class TomcatContainerServerTest {
 		Configuration config = null;
 		server.deploy(artifact , config);
 	}
+	
+	@Test
+	public void testStatus() throws Exception {
+		ClassPathResource classPathResource = new ClassPathResource("sample.war");
+		
+		ContainerServer server = new TomcatContainerServer("http://localhost:8080", "tomcat", "s3cret".toCharArray());
+		DeployableArtifact artifact = new FileArtifact(classPathResource.getFile().getAbsolutePath());
+		Configuration config = null;
+		server.deploy(artifact , config);
+		String status = server.status(artifact.id());
+		System.out.println("Status: " + status);
+	}
+	
+	@Test
+	public void testUndeploy() throws Exception {
+		ClassPathResource classPathResource = new ClassPathResource("sample.war");
+		
+		ContainerServer server = new TomcatContainerServer("http://localhost:8080", "tomcat", "s3cret".toCharArray());
+		DeployableArtifact artifact = new FileArtifact(classPathResource.getFile().getAbsolutePath());
+		Configuration config = null;
+		server.deploy(artifact , config);
+		server.undeploy(artifact.id());
+	}
 
 }
