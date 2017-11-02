@@ -4,7 +4,6 @@ import org.junit.Test;
 import org.springframework.core.io.ClassPathResource;
 
 import com.example.testtool.domain.configuration.Configuration;
-import com.example.testtool.domain.deployable.ArtifactId;
 import com.example.testtool.domain.deployable.DeployableArtifact;
 import com.example.testtool.domain.deployable.impl.FileArtifact;
 import com.example.testtool.domain.server.impl.TomcatContainerServer;
