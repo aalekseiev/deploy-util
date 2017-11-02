@@ -16,7 +16,7 @@ public final class Application {
 		this.artifact = artifact;
 	}
 
-	public void deploy(ContainerServer server) {
+	public void deploy(ContainerServer server) throws Exception {
 		server.deploy(artifact, config);
 	}
 }

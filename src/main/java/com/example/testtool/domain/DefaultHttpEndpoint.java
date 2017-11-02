@@ -20,7 +20,6 @@ import org.apache.http.impl.client.HttpClients;
 
 public class DefaultHttpEndpoint implements HttpEndpoint {
 	
-	/* "http://example.com" */
 	@Override
 	public void put(String address, String username, char[] secret, InputStream body) throws IOException, AuthenticationException {
 	    CloseableHttpClient client = HttpClients.createDefault();

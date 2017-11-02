@@ -1,9 +1,11 @@
-package com.example.testtool.domain.deployable;
+package com.example.testtool.domain.deployable.impl;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+
+import com.example.testtool.domain.deployable.DeployableArtifact;
 
 public final class FileArtifact implements DeployableArtifact {
 
