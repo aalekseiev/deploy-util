@@ -1,5 +1,5 @@
 package com.example.testtool.domain.configuration;
 
-public interface Configuration {
+public interface ToolConfiguration {
 
 }

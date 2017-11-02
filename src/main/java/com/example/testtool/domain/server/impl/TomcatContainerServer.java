@@ -2,7 +2,7 @@ package com.example.testtool.domain.server.impl;
 
 import com.example.testtool.domain.DefaultHttpEndpoint;
 import com.example.testtool.domain.HttpEndpoint;
-import com.example.testtool.domain.configuration.Configuration;
+import com.example.testtool.domain.configuration.ToolConfiguration;
 import com.example.testtool.domain.deployable.ArtifactId;
 import com.example.testtool.domain.deployable.DeployableArtifact;
 import com.example.testtool.domain.server.ContainerServer;
@@ -36,7 +36,7 @@ public final class TomcatContainerServer implements ContainerServer {
 	}
 
 	@Override
-	public void deploy(DeployableArtifact artifact, Configuration configuration) throws Exception {
+	public void deploy(DeployableArtifact artifact, ToolConfiguration configuration) throws Exception {
 		this.httpEndpoint.put(serverUrl + CONTEXT_DEPLOY, username, s3cret, artifact.stream());
 	}
 

@@ -1,6 +1,6 @@
 package com.example.testtool.domain.configuration;
 
-public final class FileConfiguration implements Configuration {
+public final class FileConfiguration implements ToolConfiguration {
 
 	private final String filename;
 
