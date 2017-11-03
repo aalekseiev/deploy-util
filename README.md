@@ -8,11 +8,14 @@ In order to run this software you need to have:
 <li>Tomcat 8 installed with configured user for manager application</li>
 </ul>
 
+<h1>Application build</h1>
 To build the project from sources please run:
 <pre>
 ./gradlew build -x test
 </pre>
 
+<h1>Application run</h1>
+This is an example command line to run deployment tool:
 <pre>
 ./tool.sh \
     --command=deploy \
