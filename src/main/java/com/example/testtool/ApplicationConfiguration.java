@@ -23,20 +23,8 @@ public class ApplicationConfiguration {
 	public DeployUtilInternalApplication application() {
 		ToolConfiguration config = new FileConfiguration(configFile);
 		DeployableArtifact artifact = new FileArtifact(artifactName);
-		System.out.println("!!!!!!!!!!!!!! creating application with !!!!!!!!!!!!!!!!!");
-		System.out.println("artifactname: " + artifactName);
-		System.out.println("config: " + configFile);
 		return new DeployUtilInternalApplication(config, artifact);
 	}
-
-//	@Bean
-//	public ToolConfiguration config() {
-//		if (!configFile.isEmpty()) {
-//			return new FileConfiguration(configFile);
-//		} else {
-//			return null;
-//		}
-//	}
 	
 
 }

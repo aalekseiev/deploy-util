@@ -21,28 +21,40 @@ public class DeployUtilApplication {
 	@Autowired
 	private ContainerServer server;
 	
-//
-//	@Value("${username}")
-//	private String username;
-//	
-//	@Value("${password}")
-//	private String password;
-	
 	@Value("${command}")
 	private String command;
 	
 	public static void main(String[] args) {
-		System.out.println("APPLICATION ARGUMENTS: " + Arrays.toString(args));
-						
 		SpringApplication.run(DeployUtilApplication.class, args);
 	}
 	
 	@Bean
 	CommandLineRunner cmdrunner() {
 		return args -> {
-			System.out.println("Lalalaa trantata: " + app.toString());
-			System.out.println("Going to run command: " + command);
-			app.deploy(server);
+//			System.out.println("Running utility with args: " + Arrays.asList(args));
+			
+			switch (command) {
+				case "deploy":
+					app.deploy(server);
+					System.out.println("Successfully deployed application: " + app.name());
+					break;
+				case "undeploy":
+					app.undeploy(server);
+					System.out.println("Successfully undeployed application: " + app.name());
+					break;
+				case "status":
+					System.out.println("Status=" + app.status(server) + " of application: " + app.name());
+					break;
+				case "start":
+					app.start(server);
+					System.out.println("Successfully started application: " + app.name());
+					break;
+				case "stop":
+					app.stop(server);
+					System.out.println("Successfully stopped application: " + app.name());
+					break;
+			}
+			
 		};
 	}
 }
