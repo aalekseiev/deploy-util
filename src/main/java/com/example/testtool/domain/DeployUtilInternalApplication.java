@@ -4,13 +4,17 @@ import com.example.testtool.domain.configuration.ToolConfiguration;
 import com.example.testtool.domain.deployable.DeployableArtifact;
 import com.example.testtool.domain.server.ContainerServer;
 
-public final class Application {
+public class DeployUtilInternalApplication {
 
 	private final ToolConfiguration config;
 
 	private final DeployableArtifact artifact;
 
-	public Application(ToolConfiguration config, DeployableArtifact artifact) {
+	public DeployUtilInternalApplication(
+			   ToolConfiguration config,
+               DeployableArtifact artifact/*,
+               String command*/
+           ) {
 		super();
 		this.config = config;
 		this.artifact = artifact;

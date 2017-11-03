@@ -1,17 +1,19 @@
 package com.example.testtool;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
 public class DeployUtilApplicationTests {
-
+	
 	@Test
-	public void contextLoads() {
-		
-	}
+    public void test() {
+        DeployUtilApplication.main(new String[] {
+        		"--serverUrl=http://localhost:8080",
+        		"--command=deploy",
+                "--spring.config.location=/home/kseniia/workspace_test/deploy-util/src/test/resources/config.yml",
+                // Override any other environment properties according to your needs
+        });
+    }
 
+	
+	
 }

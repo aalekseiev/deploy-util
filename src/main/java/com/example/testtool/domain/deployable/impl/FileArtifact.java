@@ -26,5 +26,10 @@ public final class FileArtifact implements DeployableArtifact {
 	public ArtifactId id() {
 		return new FileArtifactId(new FileName(filename).baseName());
 	}
-	
+
+	@Override
+	public String toString() {
+		return "FileArtifact [filename=" + filename + "]";
+	}
+
 }

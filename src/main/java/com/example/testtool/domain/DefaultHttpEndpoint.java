@@ -37,7 +37,7 @@ public class DefaultHttpEndpoint implements HttpEndpoint {
 
 			try (CloseableHttpResponse response = client.execute(httpPut)) {
 				if (response.getStatusLine().getStatusCode() != 200) {
-					throw new RuntimeException("Failed to execute put request. Context: " + address);
+					throw new RuntimeException("Failed to execute put request. Context: " + address + ". Response: " + EntityUtils.toString(response.getEntity(), "UTF-8"));
 				}
 			}
 		}

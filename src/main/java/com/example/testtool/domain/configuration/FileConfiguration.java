@@ -9,4 +9,9 @@ public final class FileConfiguration implements ToolConfiguration {
 		this.filename = filename;
 	}
 
+	@Override
+	public String toString() {
+		return "FileConfiguration [filename=" + filename + "]";
+	}
+
 }

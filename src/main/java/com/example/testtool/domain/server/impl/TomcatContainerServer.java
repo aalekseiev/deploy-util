@@ -1,5 +1,9 @@
 package com.example.testtool.domain.server.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
 import com.example.testtool.domain.DefaultHttpEndpoint;
 import com.example.testtool.domain.HttpEndpoint;
 import com.example.testtool.domain.configuration.ToolConfiguration;
@@ -7,6 +11,7 @@ import com.example.testtool.domain.deployable.ArtifactId;
 import com.example.testtool.domain.deployable.DeployableArtifact;
 import com.example.testtool.domain.server.ContainerServer;
 
+@Component
 public final class TomcatContainerServer implements ContainerServer {
 
 	private static final String CONTEXT_DEPLOY = "/manager/text/deploy?path=/sample";
@@ -27,7 +32,12 @@ public final class TomcatContainerServer implements ContainerServer {
 	
 	private final HttpEndpoint httpEndpoint;
 	
-	public TomcatContainerServer(String serverUrl, String username, char[] sercret) {
+	@Autowired
+	public TomcatContainerServer(
+			    @Value("${serverUrl}") String serverUrl,
+			    @Value("${username}") String username,
+			    @Value("${password}") char[] sercret
+		   ) {
 		super();
 		this.serverUrl = serverUrl;
 		this.username = username;
