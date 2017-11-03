@@ -31,7 +31,7 @@ done
 ./gradlew build -x test
 
 if [ ! -v command ]; then
-  printf "Error: command parameter is required. Possible values: deploy, undeploy, status, start, stop"
+  printf "Error: \"command\" parameter is required. Possible values: deploy, undeploy, status, start, stop\n"
   exit 1
 fi
 

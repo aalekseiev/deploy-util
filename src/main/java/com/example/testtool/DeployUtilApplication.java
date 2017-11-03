@@ -31,8 +31,6 @@ public class DeployUtilApplication {
 	@Bean
 	CommandLineRunner cmdrunner() {
 		return args -> {
-//			System.out.println("Running utility with args: " + Arrays.asList(args));
-			
 			switch (command) {
 				case "deploy":
 					app.deploy(server);
