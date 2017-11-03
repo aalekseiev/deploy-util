@@ -1,3 +1,6 @@
-username: tomcat
-password: s3cret
+
+myutil.username: tomcat
+myutil.password: s3cret
+myutil.artifact: /home/kseniia/workspace_test/deploy-util/src/test/resources/sample.war
+
 
