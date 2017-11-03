@@ -13,6 +13,16 @@ public class DeployUtilApplicationTests {
         });
     }
 	
+	@Test(expected = RuntimeException.class)
+    public void testDeployInvalidCredentials() {
+        DeployUtilApplication.main(new String[] {
+        		"--serverUrl=http://localhost:8080",
+        		"--command=deploy",
+        		"--username=adzip",
+                "--spring.config.location=/home/kseniia/workspace_test/deploy-util/src/test/resources/config.yml",
+        });
+    }
+	
 	@Test
     public void testFullCycle() {
         DeployUtilApplication.main(new String[] {

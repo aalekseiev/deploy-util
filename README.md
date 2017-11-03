@@ -19,3 +19,13 @@ java -jar ./deploy-util-0.0.1-SNAPSHOT.jar \
 </pre>
 
 java -jar ./deploy-util-0.0.1-SNAPSHOT.jar --spring.config.location=/home/kseniia/workspace_test/deploy-util/src/test/resources/config.yml
+
+
+<pre>
+./tool.sh \
+    --command=deploy \
+    --config=/home/kseniia/workspace_test/deploy-util/src/test/resources/config.yml \
+    --username=tomcat \
+    --artifact=/home/kseniia/workspace_test/deploy-util/src/test/resources/sample.war \
+    --serverUrl=http://localhost:8080
+</pre>
