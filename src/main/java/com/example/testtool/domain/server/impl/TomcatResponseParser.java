@@ -19,7 +19,11 @@ public final class TomcatResponseParser {
 		String[] strings = appsListResponse.split("\n");
 		List<String> list = Arrays.asList(strings).stream()
 				.filter(s -> s.contains(String.valueOf(artifactId.wrappedId()))).collect(Collectors.toList());
-		return list.get(0);
+		if (list.size() > 0) {
+			return list.get(0);
+		} else {
+			return "APPLICATION_NOT_AVAILABLE";
+		}
 	}
 
 }

@@ -11,7 +11,7 @@ import com.example.testtool.domain.deployable.DeployableArtifact;
 import com.example.testtool.domain.deployable.impl.FileArtifact;
 
 @Configuration
-public class ApplicationConfiguration {
+public class SpringApplicationConfiguration {
 
 	@Value("${artifact}")
 	private String artifactName;
