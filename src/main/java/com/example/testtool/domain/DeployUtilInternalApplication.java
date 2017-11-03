@@ -1,45 +1,19 @@
 package com.example.testtool.domain;
 
-import com.example.testtool.domain.configuration.ToolConfiguration;
-import com.example.testtool.domain.deployable.DeployableArtifact;
 import com.example.testtool.domain.server.ContainerServer;
 
-public final class DeployUtilInternalApplication {
+public interface DeployUtilInternalApplication {
 
-	private final ToolConfiguration config;
+	void deploy(ContainerServer server) throws Exception;
 
-	private final DeployableArtifact artifact;
+	void undeploy(ContainerServer server) throws Exception;
 
-	public DeployUtilInternalApplication(
-			   ToolConfiguration config,
-               DeployableArtifact artifact
-           ) {
-		super();
-		this.config = config;
-		this.artifact = artifact;
-	}
+	String status(ContainerServer server) throws Exception;
 
-	public void deploy(ContainerServer server) throws Exception {
-		server.deploy(artifact, config);
-	}
-	
-	public void undeploy(ContainerServer server) throws Exception {
-		server.undeploy(artifact.id());
-	}
+	void start(ContainerServer server) throws Exception;
 
-	public String status(ContainerServer server) throws Exception {
-		return server.status(artifact.id());
-	}
+	void stop(ContainerServer server) throws Exception;
 
-	public void start(ContainerServer server) throws Exception {
-		server.start(artifact.id());
-	}
-	
-	public void stop(ContainerServer server) throws Exception {
-		server.stop(artifact.id());
-	}
+	Object name();
 
-	public Object name() {
-		return artifact.id().wrappedId();
-	}
 }
