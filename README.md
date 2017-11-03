@@ -25,6 +25,23 @@ This is an example command line to run deployment tool:
     --serverUrl=http://localhost:8080
 </pre>
 
+<pre>
+              +--------------+             +--------------+
+              |              |             |              |
+              |  tool.sh     |             |  spring      |
+USER input    |  wrapper     |             |  boot        |
+              |  for         |             |  application |
+     +-------->  parameters  +------------->              |
+              |  mapping     |             |              |
+              |              |             |              |
+              |              |             |              |
+              |              |             |              |
+              |              |             |              |
+              |              |             |              |
+              |              |             |              |
+              +--------------+             +--------------+
+
+</pre>
 
 This is the sample output of a program. Application sample.war is deployed, then stopped, then started and undeployed.
 The last line shows that after undeploy no application sample is left at Tomcat.
